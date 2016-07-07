@@ -16,6 +16,8 @@ public class ShoppingCart {
 	}
 	
 	public boolean remove(int index) {
+		if (index < 0 || index >= items.size())
+			return false;
 		items.remove(index);
 		return true;
 	}

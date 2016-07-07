@@ -19,13 +19,16 @@ public class StoreTest {
 		Store store = new Store("Book Store");
 		Book b1 = new Book("T1", "A1", new BigDecimal(500));
 		
+		// Add book
 		assertTrue(store.add(b1, 5));
 		
-		Product[] products = store.list(""); // Fetches all books
-		assertEquals(1, products.length);
-		assertEquals(5, products[0].getQuantity());
+		// Fetches all books
+		Product[] products = store.list("");
+		assertEquals(1, products.length); // Check so that there is now one product
+		assertEquals(5, products[0].getQuantity()); // Check that the quantity is 5
 		
-		products = store.list("T"); // Fetches books that has a 'T' in either its title- or author-string
+		// Fetches books that has a 'T' in either its title- or author-string
+		products = store.list("T"); 
 		assertEquals(1, products.length);
 		assertEquals(5, products[0].getQuantity());
 	}
@@ -189,29 +192,29 @@ public class StoreTest {
 	
 	@Test
 	public void storeTestExpansionAddAndBuy() {
-		Store department = new Store("All-In-One Store");
+		Store store = new Store("All-In-One Store");
 		
 		// Add a Book to the Store
 		Book b1 = new Book("T1", "A1", new BigDecimal(500));
-		assertTrue(department.add(b1, 1));
+		assertTrue(store.add(b1, 1));
 		
 		// Add a Notebook to the Store
 		Notebook nb1 = new Notebook("M", "A4", "Lined", 100, new BigDecimal(50));
-		assertTrue(department.add(nb1, 1));
+		assertTrue(store.add(nb1, 1));
 		
 		// Get a list of all products
-		Product[] products = department.list("");
+		Product[] products = store.list("");
 		assertEquals(2, products.length);
 		assertEquals(1, products[0].getQuantity());
 		assertEquals(1, products[1].getQuantity());
 		
 		// Buy the book and the notebook
-		int[] buyStatus = department.buy(products[0].getItem(), products[1].getItem());
+		int[] buyStatus = store.buy(products[0].getItem(), products[1].getItem());
 		assertEquals(Store.OK, buyStatus[0]);
 		assertEquals(Store.OK, buyStatus[1]);
 		
 		// Get a list of all products
-		products = department.list("");
+		products = store.list("");
 		assertEquals(2, products.length);
 		assertEquals(0, products[0].getQuantity());
 		assertEquals(0, products[1].getQuantity());

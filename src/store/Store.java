@@ -42,7 +42,7 @@ public class Store implements ProductList {
 
 	@Override
 	public boolean add(Item item, int quantity) {
-		if (quantity < 0)
+		if (item == null || quantity < 0)
 			return false;
 		int index = -1;
 		if ((index = items.indexOf(item)) != -1)
