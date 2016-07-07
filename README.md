@@ -7,27 +7,27 @@ The 'ProductList'-interface retuns an array of products (an item of type Item an
 
 No client-server setup was implemented since it wasen't requested.
 
-public interface BookList { 
-public Book[] list(String searchString);
-public boolean add(Book book, int quantity);
-public int[] buy(Book... books);
-}
+public interface BookList { </br>
+public Book[] list(String searchString); </br>
+public boolean add(Book book, int quantity); </br>
+public int[] buy(Book... books); </br>
+} </br>
 
-public interface ProductList {
-public Product[] list(String searchString);
-public boolean add(Item item, int quantity);
-public int[] buy(Item... items);
-}
+public interface ProductList { </br>
+public Product[] list(String searchString); </br>
+public boolean add(Item item, int quantity); </br>
+public int[] buy(Item... items); </br>
+} </br>
 
-public class Product {
-private final Item item;
-private final int quantity;
-...
-}
+public class Product { </br>
+private final Item item; </br>
+private final int quantity; </br>
+... </br>
+} </br>
 
-public class ShoppingCart {
-private final ArrayList items;
-...
-}
+public class ShoppingCart { </br>
+private final ArrayList items; </br>
+... </br>
+} </br>
 
 View the diagram.png for a better overview of the system.
